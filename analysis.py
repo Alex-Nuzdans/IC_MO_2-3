@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
+
 class analysis:
     def confusion_matrix(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
     '''
