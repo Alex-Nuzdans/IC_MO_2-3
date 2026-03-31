@@ -77,3 +77,4 @@ def models(X_train, X_test, y_train, y_test):
     accuracy_lr_test = accuracy_score(y_test, y_test_pred_lr)
     print("\nТЕСТОВАЯ ВЫБОРКА:")
     print(f"  Accuracy:  {accuracy_lr_test:.4f}")
+    return accuracy_knn_test, accuracy_dt_test, accuracy_lr_test
