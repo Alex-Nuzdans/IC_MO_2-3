@@ -1,6 +1,5 @@
-import analysis from analysis
-import models from models
-import preporation from preporation
+from models import Models
+from analysis import analysis
 
 if __name__ == '__main__':
   
