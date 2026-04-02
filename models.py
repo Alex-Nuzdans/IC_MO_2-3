@@ -4,11 +4,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 
-'''
-Код для разделения данных на обучающую и тестовую выборки. Использовать в предобработке.
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42)
-'''
 class Models:
     X_train = None
     X_test = None
