@@ -3,6 +3,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
+import joblib
 
 class Models:
     X_train = None
@@ -18,6 +19,7 @@ class Models:
         self.y_knn_pred=None
         self.y_dt_pred=None
         self.y_lr_pred=None
+        self.dt_classifier=None
 
     def knn_model(self):
         scaler = StandardScaler()
@@ -69,6 +71,7 @@ class Models:
         accuracy_dt_test = accuracy_score(self.y_test, self.y_dt_pred)
         print("\nТЕСТОВАЯ ВЫБОРКА:")
         print(f"  Accuracy:  {accuracy_dt_test:.4f}")
+        self.dt_classifier = dt_classifier
         return accuracy_dt_test
 
     def logisticRegression_model(self):

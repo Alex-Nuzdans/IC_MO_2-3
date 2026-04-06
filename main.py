@@ -2,6 +2,8 @@ from models import Models
 from analysis import analysis
 from code import code
 from sklearn.model_selection import train_test_split
+from model_optimization import ModelOptimizer
+import os
 
 if __name__ == '__main__':
   df=code.load_data("telecom_churn.csv")
@@ -40,5 +42,17 @@ if __name__ == '__main__':
   Я потом займусь этим для гарантии
   '''
 
-  matrix=analysis.confusion_matrix(models.y_test,models.y_dt_pred,'Decision Tree')
-  print(matrix)
+  optimizer = ModelOptimizer(df)
+
+  # Шаг 1: Диагностика
+  baseline_recall, baseline_precision, baseline_f1 = optimizer.diagnose_baseline()
+
+  # Шаг 2-3: Оптимизация
+  grid_search = optimizer.optimize()
+
+  # Шаг 4: Оценка
+  optimized_metrics = optimizer.evaluate(grid_search)
+
+  # Шаг 5: Сравнение
+  optimizer.compare(baseline_recall, baseline_precision, baseline_f1, optimized_metrics)
+

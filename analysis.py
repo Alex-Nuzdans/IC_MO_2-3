@@ -15,6 +15,7 @@ class analysis:
         plt.ylabel('Истинные значения')
         plt.xlabel('Предсказанные значения')
         plt.show()
+        return cm
     
     def graf(models,accuracy):
         plt.figure(figsize=(10,20))
